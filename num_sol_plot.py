@@ -51,7 +51,7 @@ def plot_vxvy_plane(sol):
 #        vx0, vy0 - velocity of the particle at t0, that is, \dot{x}(t0), \dot{y}(t0)
 #        n - number of points in which time is divided into
 #Output: it returns t, x(t), y(t), vx(t), vy(t)
-def solve_eom(t0, tf, x0, y0, vx0, vy0, n, force_fct):
+def solve_eom(t0, tf, x0, y0, vx0, vy0, force_fct, n=None):
     init_cond = [vx0, vy0, x0, y0]
 
     def eom(t, p):
@@ -61,5 +61,9 @@ def solve_eom(t0, tf, x0, y0, vx0, vy0, n, force_fct):
     sol = solve_ivp(eom, [t0, tf], init_cond, method='DOP853', dense_output=True)
     if sol.success == False:
         print("Sorry, there has been an error solving the ODEs!")
+
+    if n is None:
+        n = int(np.ceil((tf-t0)*20))
+
     t = np.linspace(t0, tf, n)
     return [sol, t]
