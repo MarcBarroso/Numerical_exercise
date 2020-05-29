@@ -1,4 +1,6 @@
 *.aux
+__pycache__/
+.ipynb_checkpoints/
 *.ps
 *.log
 *.fls
