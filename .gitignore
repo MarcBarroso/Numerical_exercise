@@ -1,0 +1,11 @@
+*.aux
+*.ps
+*.log
+*.fls
+*.div
+*.out
+*.fdb_latexmk
+*.swp
+*.drawio
+*.synctex.gz
+*.bak
