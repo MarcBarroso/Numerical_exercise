@@ -109,8 +109,8 @@ def anim_double_pendulum(x1, y1, x2, y2, t):
         ax.set_ylim( ymin, ymax)
         ax.plot([0, x1[i], x2[i]], [0, y1[i], y2[i]], lw=2, c='k')
         p = Circle((0, 0), 0.05, fc='b', ec='b', zorder=10)
-        c1 = Circle((x1[i], y1[i]), 0.05, fc='r', ec='b', zorder=10)
-        c2 = Circle((x2[i], y2[i]), 0.05, fc='r', ec='b', zorder=10)
+        c1 = Circle((x1[i], y1[i]), 0.05, fc='r', ec='r', zorder=10)
+        c2 = Circle((x2[i], y2[i]), 0.05, fc='r', ec='r', zorder=10)
 
         ax.add_patch(p)
         ax.add_patch(c1)
@@ -128,7 +128,8 @@ def anim_double_pendulum(x1, y1, x2, y2, t):
 #Inputs: t0 and tf - initial and final time
 #        x0, y0 - position of the particle at t0, that is, x(t0), y(t0)
 #        vx0, vy0 - velocity of the particle at t0, that is, \dot{x}(t0), \dot{y}(t0)
-#        n - number of points in which time is divided into
+#        n - number of points in which time is divided into.
+#        max_stp - maximum step allowed in the integrator.
 #Output: it returns t, x(t), y(t), vx(t), vy(t)
 def solve_eom(t0, tf, x0, y0, vx0, vy0, force_fct, n=None, max_stp=None):
     init_cond = [vx0, vy0, x0, y0]
